@@ -41,7 +41,7 @@ describe('Lazy FB', () => {
       const js = document.getElementById('facebook-jssdk')
 
       expect(sdk).toBe(window.FB)
-      expect(js.src).toBe('https://connect.facebook.net/de_DE/debug.js')
+      expect(js.src).toBe('https://connect.facebook.net/de_DE/sdk/debug.js')
       expect(window.FB.init).toHaveBeenCalledWith({ version: 'v2.11' })
     })
   })

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>lazy-fb example</title>
+</head>
+<body>
+  <div id="success"></div>
+  <div id="success-2"></div>
+  <script src="https://unpkg.com/lazy-fb@1.0.0/lazy-fb.min.js"></script>
+  <script>
+    window.lazyFB({ debug: true }).then(FB => {
+      document.getElementById('success').textContent = 'SDK loaded'
+      return window.lazyFB()
+    }).then((FB) => {
+      document.getElementById('success-2').textContent = 'SKD requested a second time'
+      FB.getLoginStatus((status) => console.log(status))
+    })
+  </script>
+</body>
+</html>

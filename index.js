@@ -19,7 +19,7 @@ export default function loadFacebookSDK (opts = {}) {
     const fjs = document.getElementsByTagName('script')[0]
     const js = document.createElement('script')
     js.id = id
-    js.src = `https://connect.facebook.net/${lang}/${debug ? 'debug' : 'sdk'}.js`
+    js.src = `https://connect.facebook.net/${lang}/${debug ? 'sdk/debug' : 'sdk'}.js`
     fjs.parentNode.insertBefore(js, fjs)
   })
 }
