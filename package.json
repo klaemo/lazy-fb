@@ -1,15 +1,22 @@
 {
   "name": "lazy-fb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Load the Facebook SDK lazily",
   "main": "lazy-fb.js",
   "babel": {
     "presets": [
-      ["env", { "modules": false }]
+      [
+        "env",
+        {
+          "modules": false
+        }
+      ]
     ],
     "env": {
       "test": {
-        "presets": ["env"]
+        "presets": [
+          "env"
+        ]
       }
     }
   },
