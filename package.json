@@ -2,10 +2,26 @@
   "name": "lazy-fb",
   "version": "1.0.0",
   "description": "Load the Facebook SDK lazily",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest"
+  "main": "lazy-fb.js",
+  "babel": {
+    "presets": [
+      ["env", { "modules": false }]
+    ],
+    "env": {
+      "test": {
+        "presets": ["env"]
+      }
+    }
   },
+  "scripts": {
+    "build": "rollup -c && rollup -c --environment FORMAT:umd",
+    "test": "jest",
+    "prepublishOnly": "npm run -s build"
+  },
+  "files": [
+    "lazy-fb.js",
+    "lazy-fb.min.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/klaemo/lazy-fb.git"
@@ -13,12 +29,26 @@
   "keywords": [
     "facebook",
     "sdk",
-    "lazy"
+    "lazy",
+    "wrapper",
+    "performance"
   ],
   "author": "Clemens Stolle <klaemo@fastmail.fm>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/klaemo/lazy-fb/issues"
   },
-  "homepage": "https://github.com/klaemo/lazy-fb#readme"
+  "homepage": "https://github.com/klaemo/lazy-fb#readme",
+  "devDependencies": {
+    "babel-preset-env": "1.6.1",
+    "jest": "22.0.4",
+    "rollup": "0.53.0",
+    "rollup-plugin-babel": "3.0.3",
+    "rollup-plugin-uglify": "2.0.1"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "semi": false,
+    "singleQuote": true
+  }
 }
