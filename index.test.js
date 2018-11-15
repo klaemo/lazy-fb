@@ -37,12 +37,21 @@ describe('Lazy FB', () => {
     // pretend the sdk has been loaded
     setTimeout(() => window.fbAsyncInit())
 
-    return lazyFB({ lang: 'de_DE', debug: true }).then(sdk => {
+    const opts = {
+      lang: 'de_DE',
+      debug: true,
+      sdkPart: 'xfbml.customerchat'
+    }
+
+    return lazyFB(opts).then(sdk => {
       const js = document.getElementById('facebook-jssdk')
 
       expect(sdk).toBe(window.FB)
-      expect(js.src).toBe('https://connect.facebook.net/de_DE/sdk/debug.js')
-      expect(window.FB.init).toHaveBeenCalledWith({ version: 'v2.11' })
+      expect(js.src).toBe('https://connect.facebook.net/de_DE/sdk/xfbml.customerchat/debug.js')
+      expect(window.FB.init).toHaveBeenCalledWith({
+        version: 'v2.11',
+        sdkPart: 'xfbml.customerchat'
+      })
     })
   })
 

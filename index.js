@@ -6,7 +6,12 @@ export default function loadFacebookSDK (opts = {}) {
       return resolve(window.FB)
     }
 
-    const { lang = 'en_US', debug = false } = opts
+    const {
+      lang = 'en_US',
+      debug = false,
+      sdkPart = ''
+    } = opts
+
     opts.version = opts.version || 'v2.11'
     delete opts.lang
     delete opts.debug
@@ -19,7 +24,10 @@ export default function loadFacebookSDK (opts = {}) {
     const fjs = document.getElementsByTagName('script')[0]
     const js = document.createElement('script')
     js.id = id
-    js.src = `https://connect.facebook.net/${lang}/${debug ? 'sdk/debug' : 'sdk'}.js`
+    const slash = sdkPart ? '/' : ''
+    const srcPrefix = `https://connect.facebook.net/${lang}/sdk${slash}`
+    const srcSuffix = `${debug ? `${sdkPart}/debug` : sdkPart}.js`
+    js.src = srcPrefix + srcSuffix
     fjs.parentNode.insertBefore(js, fjs)
   })
 }
