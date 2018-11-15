@@ -40,7 +40,7 @@ describe('Lazy FB', () => {
     const opts = {
       lang: 'de_DE',
       debug: true,
-      sdkPart: 'xfbml.customerchat'
+      sdkModule: 'xfbml.customerchat'
     }
 
     return lazyFB(opts).then(sdk => {
@@ -50,7 +50,7 @@ describe('Lazy FB', () => {
       expect(js.src).toBe('https://connect.facebook.net/de_DE/sdk/xfbml.customerchat/debug.js')
       expect(window.FB.init).toHaveBeenCalledWith({
         version: 'v2.11',
-        sdkPart: 'xfbml.customerchat'
+        sdkModule: 'xfbml.customerchat'
       })
     })
   })
