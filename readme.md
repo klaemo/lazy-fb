@@ -61,11 +61,14 @@ On top of all the standard options for `FB.init()` like `appId`, `xfbml`, `statu
 ```js
 {
   lang: 'en_US', // the language of the SDK
-  debug: false // whether to load the debug build or not
+  debug: false, // whether to load the debug build or not
+  sdkModule: '' // Facebook recently separated some modules from SDK. Other values are ['xfbml.customerchat'] 
 }
 ```
 
 Take a look at https://developers.facebook.com/docs/javascript/advanced-setup for more options.
+
+
 
 ## License
 [ISC](https://tldrlegal.com/license/-isc-license)
